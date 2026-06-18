@@ -1,0 +1,15 @@
+public/
+resources/
+.hugo_build.lock
+.DS_Store
+._*
+
+# Obsidian vault config (lives in content/ via symlink)
+.obsidian/
+content/.obsidian/
+
+# Obsidian Templater templates (Hugo ignores via ignoreFiles, git ignores here)
+content/_templates/
+
+__pycache__/
+*.pyc

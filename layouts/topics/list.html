@@ -1,0 +1,18 @@
+{{ define "main" }}
+<content>
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  <ul class="topics">
+    {{ $excluded := slice "topics" }}
+    {{ range (where site.Sections "Section" "not in" $excluded).ByWeight }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .Title | default (humanize .Section) }}</a>
+      <small>({{ len .RegularPages }})</small>
+      {{ with .Content }}<p class="topic-summary">{{ . }}</p>{{ end }}
+    </li>
+    {{ else }}
+    <li>No topics yet.</li>
+    {{ end }}
+  </ul>
+</content>
+{{ end }}

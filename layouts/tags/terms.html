@@ -1,0 +1,10 @@
+{{ define "main" }}
+<content>
+  <h1>Tags</h1>
+  <div class="tag-cloud">
+    {{ range .Data.Terms.Alphabetical }}
+    <a href="{{ .Page.RelPermalink }}" class="tag-item">#{{ .Page.LinkTitle | lower }} <small>({{ .Count }})</small></a>
+    {{ end }}
+  </div>
+</content>
+{{ end }}

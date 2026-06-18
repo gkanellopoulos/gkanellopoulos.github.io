@@ -1,0 +1,31 @@
+baseURL = "https://gkanellopoulos.com/"
+locale = "en-us"
+title = "George Kanellopoulos"
+theme = "bearblog"
+copyright = "Copyright © 2026, George Kanellopoulos."
+
+enableRobotsTXT = true
+
+ignoreErrors = ["error-disable-taxonomy"]
+ignoreFiles = ["_templates"]
+
+[taxonomies]
+  tag = "tags"
+
+[params]
+  description = "Enterprise Architect · AI & GenAI in regulated environments"
+  author = "George Kanellopoulos"
+  title = "George Kanellopoulos"
+  dateFormat = "02 Jan, 2006"
+  hideMadeWithLine = true
+  # enablePostNavigator = true
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+    lineNos = true
+    lineNumbersInTable = false
+    codeFences = true
+  [markup.goldmark.renderer]
+    unsafe = true
+

@@ -1,0 +1,46 @@
+{{ define "main" }}
+<section class="hub-hero">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+</section>
+
+<section class="hub-posts">
+  <ul class="blog-posts">
+    {{ $excluded := slice "" "topics" }}
+    {{ $posts := where (where site.Pages.ByDate.Reverse "Kind" "page") "Section" "not in" $excluded }}
+    {{ range $posts }}
+    <li>
+      <span>
+        <i>
+          <time datetime='{{ .Date.Format "2006-01-02" }}'>
+            {{ .Date.Format (default "02 Jan, 2006" .Site.Params.dateFormat) }}
+          </time>
+        </i>
+      </span>
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </li>
+    {{ else }}
+    <li>No posts yet.</li>
+    {{ end }}
+  </ul>
+</section>
+
+<section class="hub-projects">
+  <h2 id="projects">Projects</h2>
+  <ul class="project-list">
+    <li><a href="https://github.com/gkanellopoulos/ctms" target="_blank" rel="noopener noreferrer"><strong>CTMS</strong></a> — A specification for cryptographically signing and verifying MCP tool metadata, defending against tool-description-poisoning attacks.</li>
+    <li><a href="https://github.com/gkanellopoulos/mnemefusion" target="_blank" rel="noopener noreferrer"><strong>MnemeFusion</strong></a> — A multi-dimensional AI memory engine written in Rust.</li>
+    <li><a href="https://thinkllm.dev" target="_blank" rel="noopener noreferrer"><strong>ThinkLLM</strong></a> — A living knowledge graph cataloguing 1,000+ large language models.</li>
+  </ul>
+</section>
+
+<section class="hub-connect">
+  <h2>Connect</h2>
+  <ul class="connect-links">
+    <li><a href="https://github.com/gkanellopoulos" target="_blank" rel="noopener noreferrer me">GitHub</a></li>
+    <li><a href="https://www.linkedin.com/in/gkanellopoulos" target="_blank" rel="noopener noreferrer me">LinkedIn</a></li>
+    <li><a href="https://bsky.app/profile/gkanellopoulos.bsky.social" target="_blank" rel="noopener noreferrer me">Bluesky</a></li>
+    <li><a href="mailto:george@gkanellopoulos.com">Email</a></li>
+  </ul>
+</section>
+{{ end }}

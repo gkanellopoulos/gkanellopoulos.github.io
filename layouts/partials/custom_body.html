@@ -1,0 +1,42 @@
+<script>
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest("[data-theme-toggle]");
+    if (!btn) return;
+    var current = document.documentElement.getAttribute("data-theme") || "dark";
+    var next = current === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+    if (window.__mermaidRerender) window.__mermaidRerender(next);
+  });
+</script>
+<script>
+  (function () {
+    var blocks = document.querySelectorAll(".language-mermaid");
+    if (!blocks.length) return;
+
+    var sources = [];
+    blocks.forEach(function (el, i) {
+      sources.push(el.textContent);
+      el.parentElement.outerHTML = '<div class="mermaid" data-mermaid-index="' + i + '"></div>';
+    });
+
+    var s = document.createElement("script");
+    s.src = "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js";
+    s.onload = function () {
+      function renderAll(themeName) {
+        var t = themeName === "light" ? "default" : "dark";
+        mermaid.initialize({ startOnLoad: false, theme: t });
+        document.querySelectorAll(".mermaid").forEach(function (el, i) {
+          el.removeAttribute("data-processed");
+          el.innerHTML = sources[i];
+        });
+        mermaid.run();
+      }
+
+      var current = document.documentElement.getAttribute("data-theme") || "dark";
+      renderAll(current);
+      window.__mermaidRerender = renderAll;
+    };
+    document.body.appendChild(s);
+  })();
+</script>
