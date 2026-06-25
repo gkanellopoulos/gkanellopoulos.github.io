@@ -1,6 +1,6 @@
 +++
 title = "The Operation Was Successful, But The Patient Died"
-date = 2026-06-26T09:22:03+02:00
+date = 2026-06-25T09:22:03+02:00
 draft = false
 tags = ["ai", "ai-governance", "llm", "evaluation"]
 summary = "The term hallucination creates a dangerous false impression in enterprise settings. A simple expert-driven framework for evaluating LLM outputs on two axes: completeness and accuracy."
