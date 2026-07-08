@@ -6,6 +6,8 @@ tags = ["ai", "ai-governance", "enterprise-architecture", "technology-strategy",
 summary = "Agentic AI is the most hyped and least operationalized technology of 2026: 79% of organizations report adopting AI agents, yet only 11% have solutions in production. This white paper examines why, through the anatomy of a production harness, the architecture patterns that survive contact with reality, the ways agents fail differently than traditional software, and the governance, economics and organizational readiness that determine who closes the gap. It ends with ten recommendations for technical leadership."
 +++
 
+<small>**Update (08 Jul, 2026):** A living version of the paper now exists at [theeffectiveagent.ai](https://theeffectiveagent.ai), where the same framework is maintained as a knowledge graph, continuously enriched by an automated research pipeline and human review.</small>
+
 ## Executive Summary
 
 Agentic AI is at once the most hyped and the least operationalized technology of 2026. 79% of organizations report adopting AI agents yet only 11% have solutions in production, and Gartner predicts that over 40% of agentic AI projects will be canceled by the end of 2027. This paper argues that the gap has little to do with model capability. The model has become a commodity. What determines success is everything that surrounds it: the harness, the governance architecture, the economics and the organization itself.
