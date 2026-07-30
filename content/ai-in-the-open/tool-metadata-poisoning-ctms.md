@@ -6,6 +6,8 @@ tags = ["mcp", "security", "ctms", "supply-chain", "sigstore"]
 summary = "Nothing verifies that a tool's description is what its publisher wrote, and researchers have repeatedly demonstrated poisoning attacks against MCP clients. CTMS is a signing and verification scheme that prevents these attacks at runtime."
 +++
 
+<small>**Update (July 2026):** The MCP 2026-07-28 specification moved the execution field out of the core Tool object into the tasks extension. This affects one of the seven CTMS signing surface fields. See [issue #1](https://github.com/gkanellopoulos/ctms/issues/1) of the spec repo for the impact analysis and the v1.1 plan. The security gap statements quoted in this article remain in the 2026-07-28 specification unchanged.</small>
+
 When an AI model discovers a tool, it uses the tool's self-description to decide what the tool does and how to call it. Nothing verifies that description. A compromised or malicious server can rewrite what a tool claims to do, and the model will follow those rewritten instructions without question.
 
 This is tool description poisoning. It has been [demonstrated in practice](https://arxiv.org/abs/2504.03767) against MCP (Model Context Protocol) clients, enabling malicious code execution, remote access, and credential theft. It is not a theoretical risk. It is the next software supply chain attack surface.
